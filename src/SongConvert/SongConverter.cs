@@ -18,7 +18,7 @@ namespace SongConvert
             _invalidFileNameChars = Path.GetInvalidFileNameChars();
         }
 
-        public void Convert(Song song, bool removeHeaders)
+        public void Convert(Song song, bool removeHeaders, bool includeSongInformation)
         {
             string text;
             if (!string.IsNullOrWhiteSpace(song.Words) && ((song.Words.Length != 1) || (song.Words[0] != '\0')))
@@ -37,7 +37,8 @@ namespace SongConvert
 
             var title = song.Title.Ungarble();
 
-            string filename = $"{Escape(title)} ({song.SongNumber}) ({song.RecId}).txt";
+            string songInformation = includeSongInformation ? $" ({song.SongNumber}) ({song.RecId})" : string.Empty;
+            string filename = $"{Escape(title)}{songInformation}.txt";
 
             var fullPath = Path.Combine(_destinationPath, filename);
 

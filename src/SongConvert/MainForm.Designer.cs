@@ -38,6 +38,7 @@ namespace SongConvert
             this.convertButton = new System.Windows.Forms.Button();
             this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.removeHeadersCheckBox = new System.Windows.Forms.CheckBox();
+            this.includeSongInformation = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // easyWorshipSongPath
@@ -136,11 +137,22 @@ namespace SongConvert
             this.removeHeadersCheckBox.Text = "Remove verse/chorus/bridge headers";
             this.removeHeadersCheckBox.UseVisualStyleBackColor = true;
             // 
+            // includeSongInformation
+            // 
+            this.includeSongInformation.AutoSize = true;
+            this.includeSongInformation.Location = new System.Drawing.Point(235, 120);
+            this.includeSongInformation.Name = "includeSongInformation";
+            this.includeSongInformation.Size = new System.Drawing.Size(207, 17);
+            this.includeSongInformation.TabIndex = 9;
+            this.includeSongInformation.Text = "Include song number etc. in file names";
+            this.includeSongInformation.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(597, 178);
+            this.Controls.Add(this.includeSongInformation);
             this.Controls.Add(this.removeHeadersCheckBox);
             this.Controls.Add(this.convertButton);
             this.Controls.Add(this.progressBar);
@@ -169,6 +181,7 @@ namespace SongConvert
         private System.ComponentModel.BackgroundWorker backgroundWorker;
         private System.Windows.Forms.Button convertButton;
         private System.Windows.Forms.CheckBox removeHeadersCheckBox;
+        private System.Windows.Forms.CheckBox includeSongInformation;
     }
 }
 

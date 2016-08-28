@@ -39,7 +39,11 @@ namespace SongConvert
                 progressBar.Value = 0;
 
                 // Initiate asynchronous processing
-                var options = new ProcessingOptions { RemoveHeaders = removeHeadersCheckBox.Checked};
+                var options = new ProcessingOptions
+                {
+                    RemoveHeaders = removeHeadersCheckBox.Checked,
+                    IncludeSongInformation = includeSongInformation.Checked
+                };
                 backgroundWorker.RunWorkerAsync(options);
             }
         }
@@ -59,7 +63,7 @@ namespace SongConvert
             for (var i = 0; i < songs.Count; i++)
             {
                 var song = songs[i];
-                songConverter.Convert(song, options.RemoveHeaders);
+                songConverter.Convert(song, options.RemoveHeaders, options.IncludeSongInformation);
 
                 if (worker.CancellationPending)
                 {
@@ -144,6 +148,7 @@ namespace SongConvert
 
     internal class ProcessingOptions
     {
+        public bool IncludeSongInformation { get; set; }
         public bool RemoveHeaders { get; set; }
     }
 }
